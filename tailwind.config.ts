@@ -9,8 +9,19 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        rose: {
+          gold: "#c9956c",
+          light: "#e8b4b8",
+          dark: "#b07855",
+        },
+        cream: "#faf7f4",
+        ivory: "#f5f0eb",
+        charcoal: "#3d3230",
+        muted: "#8a7370",
+      },
+      fontFamily: {
+        playfair: ["var(--font-playfair)", "Georgia", "serif"],
+        inter: ["var(--font-inter)", "system-ui", "sans-serif"],
       },
     },
   },

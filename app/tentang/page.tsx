@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -22,8 +23,14 @@ export default function TentangPage() {
       </div>
 
       <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
-        <div className="bg-rose-light/20 rounded-3xl aspect-video flex items-center justify-center">
-          <p className="text-muted text-sm">Foto Tim / Studio</p>
+        <div className="relative rounded-3xl overflow-hidden aspect-video">
+          <Image
+            src="/images/img-05-team-studio.webp"
+            alt="Tim workshop Salih Flower — handmade paper flower crafting"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
+          />
         </div>
         <div>
           <h2 className="font-playfair text-2xl text-charcoal mb-4">Kisah di Balik Salih Flower</h2>

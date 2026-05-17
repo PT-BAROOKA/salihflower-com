@@ -18,6 +18,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://salihflower.com"),
   title: {
     default: "Salih Flower — Premium Paper Flower & Custom Board Klaten",
     template: "%s | Salih Flower",
@@ -39,6 +40,14 @@ export const metadata: Metadata = {
     locale: "id_ID",
     url: "https://salihflower.com",
     siteName: "Salih Flower",
+    images: [
+      {
+        url: "/images/img-02-og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Salih Flower — Premium Custom Board & Paper Flower Decor",
+      },
+    ],
   },
 };
 

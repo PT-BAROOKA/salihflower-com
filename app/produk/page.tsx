@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -12,30 +13,35 @@ const products = [
     price: "Rp 150.000",
     desc: "Cocok untuk ucapan selamat personal, kecil namun berkesan. Ukuran A4, tersedia dalam berbagai warna.",
     ideal: "Hadiah pribadi, ucapan ulang tahun",
+    img: "/images/img-06-mini-board.webp",
   },
   {
     name: "Congratulation Board Persegi",
     price: "Rp 350.000",
     desc: "Board persegi premium dengan paper flower 3D, custom nama dan ucapan. Ukuran 40x40 cm.",
     ideal: "Wisuda, promosi jabatan, anniversary",
+    img: "/images/img-07-congratulation-board.webp",
   },
   {
     name: "Signature Round Board",
     price: "Rp 500.000",
     desc: "Board bulat eksklusif dengan rangkaian paper flower melingkar. Tampilan premium dan instagrammable.",
     ideal: "Wedding, sweet seventeen, brand activation",
+    img: "/images/img-08-signature-round-board.webp",
   },
   {
     name: "Corporate Custom Board",
     price: "Rp 1.000.000",
     desc: "Disesuaikan penuh dengan identitas brand Anda — logo, warna corporate, dan pesan kustom. Minimum order dan harga berdasarkan kebutuhan.",
     ideal: "Peluncuran produk, anniversary perusahaan, event B2B",
+    img: "/images/img-09-corporate-board.webp",
   },
   {
     name: "Event Decor / Paper Flower",
     price: "Request Quote",
     desc: "Dekorasi paper flower untuk event berskala besar. Backdrop, arch, table decor, dan instalasi custom.",
     ideal: "Wedding, pameran, corporate event, grand opening",
+    img: "/images/img-10-event-decor.webp",
   },
 ];
 
@@ -56,18 +62,29 @@ export default function ProdukPage() {
         {products.map((p, i) => (
           <div
             key={i}
-            className="bg-ivory border border-rose-light/30 rounded-2xl p-8 hover:border-rose-gold/50 transition-colors"
+            className="bg-ivory border border-rose-light/30 rounded-2xl overflow-hidden hover:border-rose-gold/50 transition-colors"
           >
-            <div className="flex items-start justify-between mb-4">
-              <h2 className="font-playfair text-xl text-charcoal">{p.name}</h2>
-              <span className="text-rose-gold font-semibold text-sm whitespace-nowrap ml-4">
-                {p.price === "Request Quote" ? "Request Quote" : `Mulai ${p.price}`}
-              </span>
+            <div className="relative w-full aspect-square">
+              <Image
+                src={p.img}
+                alt={p.name}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
             </div>
-            <p className="text-muted text-sm leading-relaxed mb-4">{p.desc}</p>
-            <div className="bg-rose-light/20 rounded-lg px-4 py-2">
-              <span className="text-xs text-rose-gold font-semibold uppercase tracking-wider">Ideal untuk: </span>
-              <span className="text-xs text-muted">{p.ideal}</span>
+            <div className="p-8">
+              <div className="flex items-start justify-between mb-4">
+                <h2 className="font-playfair text-xl text-charcoal">{p.name}</h2>
+                <span className="text-rose-gold font-semibold text-sm whitespace-nowrap ml-4">
+                  {p.price === "Request Quote" ? "Request Quote" : `Mulai ${p.price}`}
+                </span>
+              </div>
+              <p className="text-muted text-sm leading-relaxed mb-4">{p.desc}</p>
+              <div className="bg-rose-light/20 rounded-lg px-4 py-2">
+                <span className="text-xs text-rose-gold font-semibold uppercase tracking-wider">Ideal untuk: </span>
+                <span className="text-xs text-muted">{p.ideal}</span>
+              </div>
             </div>
           </div>
         ))}
